@@ -11,30 +11,30 @@ public class Game {
 		System.out.println(
 				"You find yourself in a swamp... \nYou feel inside your pocket and find a magic compass. \nIt seems to point you in the direction of treasure! \n");
 		walk1.tresLoc.startPosition();
-
 		Scanner scan = new Scanner(System.in);
 		while (walk1.distanceCalc() != 0) {
 			System.out.println("The compass indicates that the treasure is " + df.format(walk1.distanceCalc())
 					+ "m away from you.");
+
 			while (true) {
 				String input = scan.nextLine();
 				String dir;
 
-				if (input.startsWith("N") || input.startsWith("n")) {
+				if (input.toUpperCase().startsWith("N")) {
 					dir = "North";
-					walk1.move(dir);
+					walk1.playerMove(dir);
 					break;
-				} else if (input.startsWith("S") || input.startsWith("s")) {
+				} else if (input.toUpperCase().startsWith("S")) {
 					dir = "South";
-					walk1.move(dir);
+					walk1.playerMove(dir);
 					break;
-				} else if (input.startsWith("E") || input.startsWith("e")) {
+				} else if (input.toUpperCase().startsWith("E")) {
 					dir = "East";
-					walk1.move(dir);
+					walk1.playerMove(dir);
 					break;
-				} else if (input.startsWith("W") || input.startsWith("w")) {
+				} else if (input.toUpperCase().startsWith("W")) {
 					dir = "West";
-					walk1.move(dir);
+					walk1.playerMove(dir);
 					break;
 				} else {
 					System.out.println("You can only move North, East, South or West. Try again.");

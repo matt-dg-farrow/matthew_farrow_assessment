@@ -3,8 +3,10 @@ package com.qa.app;
 public class Walker {
 
 	private double distToTreasure;
+	private double distToPlayer;
 	public PlayerLocation playLoc = new PlayerLocation();
 	public TreasureLocation tresLoc = new TreasureLocation();
+	public Refractor oppLoc = new Refractor();
 
 	public double distanceCalc() {
 		double xDist = playLoc.getxCoord() - tresLoc.getxCoord();
@@ -13,40 +15,22 @@ public class Walker {
 
 	}
 
-	public void move(String dir) {
-		int currxCoord = playLoc.getxCoord();
-		int curryCoord = playLoc.getyCoord();
-
-		switch (dir) {
-
-		case "North":
-			playLoc.setyCoord(curryCoord + 1);
-			break;
-
-		case "South":
-			playLoc.setyCoord(curryCoord - 1);
-			break;
-
-		case "East":
-			playLoc.setxCoord(currxCoord + 1);
-			break;
-
-		case "West":
-			playLoc.setxCoord(currxCoord - 1);
-			break;
+	public double distToPlayerCalc() {
+		double xDist = (playLoc.getxCoord() - oppLoc.getxCoord());
+		double yDist = (playLoc.getyCoord() - oppLoc.getyCoord());
+		if (xDist > yDist) {
+			return xDist;
+		} else {
+			return yDist;
 		}
-
 	}
-}
 
-//	public void move(String dir) {
-//		int currxCoord = playLoc.getxCoord();
-//		int curryCoord = playLoc.getyCoord();
-//		if (dir == "North") {
-//			playLoc.setxCoord(curryCoord + 1);
-//		}
-//		if (dir == "South") {
-//			playLoc.setxCoord(curryCoord + 1);
-//		}
-//	}
-//}
+	public void playerMove(String dir) {
+		playLoc.move(dir);
+	}
+
+	public void opponentMove(String dir) {
+		oppLoc.move(dir);
+	}
+
+}
