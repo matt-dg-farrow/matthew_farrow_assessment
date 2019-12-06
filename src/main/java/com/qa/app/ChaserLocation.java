@@ -1,6 +1,6 @@
 package com.qa.app;
 
-public class Refractor extends Location implements Move {
+public class ChaserLocation extends Location implements Move {
 
 	@Override
 	public void move(String dir) {

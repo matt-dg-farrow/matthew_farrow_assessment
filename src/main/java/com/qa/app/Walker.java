@@ -6,7 +6,7 @@ public class Walker {
 	private double distToPlayer;
 	public PlayerLocation playLoc = new PlayerLocation();
 	public TreasureLocation tresLoc = new TreasureLocation();
-	public Refractor oppLoc = new Refractor();
+	public ChaserLocation oppLoc = new ChaserLocation();
 
 	public double distanceCalc() {
 		double xDist = playLoc.getxCoord() - tresLoc.getxCoord();
